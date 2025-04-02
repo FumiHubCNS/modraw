@@ -11,9 +11,10 @@
 #     "python-dotenv==1.1.0",
 # ]
 # ///
+
 import marimo
 
-__generated_with = "0.11.26"
+__generated_with = "0.11.29"
 app = marimo.App(width="medium")
 
 
@@ -30,20 +31,28 @@ def _():
 
 
 @app.cell
-def _(BytesIO, Image, base64):
-    def base64_to_pil(base64_string):
-        """Convert a base64 string to PIL Image"""
+def _(mo):
+    mo.ui.chat()
+    return
+
+
+app._unparsable_cell(
+    r"""
+    tdef base64_to_pil(base64_string):
+        \"\"\"Convert a base64 string to PIL Image\"\"\"
         # Remove the data URL prefix if it exists
         if 'base64,' in base64_string:
             base64_string = base64_string.split('base64,')[1]
-    
+
         # Decode base64 string
         img_data = base64.b64decode(base64_string)
-    
+
         # Create PIL Image from bytes
         img = Image.open(BytesIO(img_data))
         return img
-    return (base64_to_pil,)
+    """,
+    name="_"
+)
 
 
 @app.cell

@@ -6,7 +6,7 @@ install:
 	python -m pip install -e .
 	python -m pip install twine wheel
 
-pypi:
+pypi: clean
 	uv build
 	uv publish
 
@@ -22,3 +22,6 @@ clean:
 
 docs: 
 	marimo export html-wasm demo.py --output docs/index.html --mode edit
+
+serve:
+	uv run python -m http.server 8000 --directory docs

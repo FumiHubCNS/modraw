@@ -3,12 +3,13 @@ from typing import List
 from pathlib import Path
 import anywidget
 import traitlets
-from PIL import Image
 from io import BytesIO
 
 
 def base64_to_pil(base64_string):
     """Convert a base64 string to PIL Image"""
+    from PIL import Image
+
     # Remove the data URL prefix if it exists
     if 'base64,' in base64_string:
         base64_string = base64_string.split('base64,')[1]
@@ -32,7 +33,7 @@ class Draw(anywidget.AnyWidget):
     def __init__(self, width: int = 800, height: int = 500, **kwargs) -> None:
         super().__init__(width=width, height=height, **kwargs)
     
-    def get_pil(self) -> Image.Image:
+    def get_pil(self):
         if not self.base64:
             raise ValueError("No base64 image data available, make sure you draw something first.")
         return base64_to_pil(self.base64)

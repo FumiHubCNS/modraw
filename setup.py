@@ -4,7 +4,6 @@ from setuptools import setup, find_packages
 
 base_packages = [
     "anywidget>=0.9.2", 
-    "pillow>=11.1.0"
 ]
 
 def read(fname):
@@ -13,7 +12,7 @@ def read(fname):
 
 setup(
     name="modraw",
-    version="0.1.0",
+    version="0.1.1",
     description="Collection of Anywidget Widgets",
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks"]),
