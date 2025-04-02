@@ -51,5 +51,3 @@ I am currently exploring how we might move some of these components to react, ma
 make install
 make dev
 ```
-
-This assumes that you ran `npm install` beforehand.

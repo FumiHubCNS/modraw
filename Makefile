@@ -5,6 +5,7 @@ install:
 	curl -fsSL https://esbuild.github.io/dl/v0.19.11 | sh
 	python -m pip install -e .
 	python -m pip install twine wheel
+	npm install
 
 pypi: clean
 	uv build
