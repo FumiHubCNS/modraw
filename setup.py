@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name="modraw",
-    version="0.1.1",
+    version="0.1.14",
     description="Collection of Anywidget Widgets",
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks"]),
